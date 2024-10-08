@@ -1,6 +1,8 @@
 # Project Title
 
-Guest Management App - by Menica
+Seller Dashboard App - by Bislin 
+
+This project is a Seller Dashboard App designed to facilitate the management of various aspects of an online store. I created this application to document my previous project and detail the coding process involved. It serves as a component of my product, Bislin, which is a simple store builder. Feel free to clone or fork this project if you're interested in exploring or utilizing its features. This app manages key store operations, including order processing, expedition tracking, and customization of store theme colors, among other functionalities. These features are essential for any seller looking to streamline and enhance their store management.
 
 ## Intro
 
