@@ -1,55 +1,55 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StatusBar } from 'expo-status-bar';
-import { Text, View, Button } from 'react-native';
+import { View, Text, Button } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { HomeIcon, SettingsIcon } from 'lucide-react-native';
+// i decide to separate this stack nav component
+import { AppScreen } from './components/screen/AppScreen';
 
-// Context API
-// import { AuthContext } from './context/authContext'
-import { AuthContext } from './context/authContext'
+// const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-// Style
-import { styles } from './styles';
-
-// Screen
-import LoginScreen from './components/screen/LoginScreen';
-import SignupScreen from './components/screen/SignupScreen';
-import HomeScreen from './components/screen/HomeScreen';
-import GuestScreen from './components/screen/GuestScreen';
-
-
-const Stack = createNativeStackNavigator();
-
-export default function App() {
-  return (
-    <AuthContext.Provider value='345'>
-      <NavigationContainer> 
-        <Stack.Navigator initialRouteName='Login'>
-          <Stack.Screen
-            name="Login"
-            component={LoginScreen}
-          >
-          </Stack.Screen>
-          <Stack.Screen
-            name="Signup"
-            component={SignupScreen}
-          >
-          </Stack.Screen>
-          <Stack.Screen 
-            name="Home" 
-            component={HomeScreen} 
-            options={{ 
-              title: 'Beranda' 
-            }}
-          />
-          <Stack.Screen 
-            name="Guest"
-            component={GuestScreen}
-            options={{
-              title: 'Daftar Tamu'
-            }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </AuthContext.Provider>
-  );
+const SettingScreen = () => {
+  return(
+    <>
+      <Text>
+        Setting
+      </Text>
+    </>
+  )
 }
+
+
+
+const App = () => {
+
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+
+            if (route.name === 'AppScreen') {
+              return <HomeIcon color={ focused ? "blue" : "gray" } size={20} />
+            } else if (route.name === 'Setting') {
+              return <SettingsIcon color={ focused ? "blue" : "gray" } size={20} />
+            }
+          },
+          tabBarActiveTintColor: 'black',
+          tabBarInactiveTintColor: 'gray',
+        })}
+      >
+        <Tab.Screen  
+          name="AppScreen" 
+          component={AppScreen}
+          options={{
+            headerShown: false
+          }}
+        />
+        <Tab.Screen name="Setting" component={SettingScreen}/>
+      </Tab.Navigator>
+    </NavigationContainer>
+  )
+}
+
+export default App
