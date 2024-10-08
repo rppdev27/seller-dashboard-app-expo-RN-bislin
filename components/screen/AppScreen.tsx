@@ -2,6 +2,10 @@ import React from 'react';
 import { View, Text, Button, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Order from './home/OrderScreen';
+import Home from './home/HomeScreen';
+import LandingPage from './home/LandingPage';
+import Marketing from './home/Marketing';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,15 +23,15 @@ const Login = ({ navigation }) => {
   )
 }
 
-const Home = () => {
-  return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Home</Text>
-      </View>
-    </SafeAreaView>
-  )
-}
+// const Home = () => {
+//   return (
+//     <SafeAreaView style={{ flex: 1 }}>
+//       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//         <Text>Home</Text>
+//       </View>
+//     </SafeAreaView>
+//   )
+// }
 
 const Product = () => {
   return (
@@ -39,15 +43,15 @@ const Product = () => {
   )
 }
 
-const Order = () => {
-  return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Order</Text>
-      </View>
-    </SafeAreaView>
-  )
-}
+// const Order = () => {
+//   return (
+//     <SafeAreaView style={{ flex: 1 }}>
+//       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//         <Text>Order</Text>
+//       </View>
+//     </SafeAreaView>
+//   )
+// }
 
 const Ekspedisi = () => {
   return (
@@ -81,7 +85,7 @@ const Tampilan = () => {
 
 export const AppScreen = () => {
   return(
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName='Login'>
       <Stack.Screen
         name="Login"
         component={Login}
@@ -101,6 +105,8 @@ export const AppScreen = () => {
       <Stack.Screen name="Ekspedisi" component={Ekspedisi}/>
       <Stack.Screen name="FAQ" component={FAQ}/>
       <Stack.Screen name="Tampilan" component={Tampilan}/>
+      <Stack.Screen name="Landingpage" component={LandingPage}/>
+      <Stack.Screen name="Marketing" component={Marketing}/>
     </Stack.Navigator>
   )
 }
