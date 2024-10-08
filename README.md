@@ -16,7 +16,7 @@ This project utilizes the following libraries:
 
 ### UI Development
 
-- **Custom UI**: This project does not use UI kits like NativeBase or similar libraries. All UI components are created manually.
+- **Custom UI**: For this project, I chose to create custom UI components without relying on pre-built frameworks. Each element was handcrafted individually.
 
 
 ### Prerequisites
